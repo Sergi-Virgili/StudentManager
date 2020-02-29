@@ -16,5 +16,11 @@ namespace FileManager.Presentation.WinSite
         {
             InitializeComponent();
         }
+
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Save Student");
+        }
     }
 }
