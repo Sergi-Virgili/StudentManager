@@ -20,6 +20,17 @@ namespace FileManager.DataAccess.Data.DaoPersistenceTXT
             return student;
         }
 
-       
+        public static void All()
+        {
+
+            string[] lines = File.ReadAllLines(FileName);
+            foreach (var line in lines)
+            {
+                var values = line.Split(';');
+                Console.WriteLine(values[0] + " " + values[1] + " " + values[2]);
+
+            }
+
+        }
     }
 }
