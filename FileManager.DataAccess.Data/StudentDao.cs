@@ -1,4 +1,6 @@
 ﻿using FileManager.Common.Layer;
+using FileManager.DataAccess.Data.DaoPersistenceTXT;
+using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,11 @@ namespace FileManager.DataAccess.Data
 {
     public class StudentDao
     {
-        public Student Add(Student student)
+        public Student Create(Student student)
         {
-            throw new NotImplementedException("The method is not implemented yet");
+            Student oNewStudent = DaoStudentTXT.Create(student);
+
+            return oNewStudent;
         }
     }
 }
