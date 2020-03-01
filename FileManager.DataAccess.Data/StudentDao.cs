@@ -12,7 +12,7 @@ namespace FileManager.DataAccess.Data
     public class StudentDao : IAbstractFactoryDao
     {
 
-        public static Student Create(Student student)
+        public Student Create(Student student)
         {
 
 
@@ -21,6 +21,7 @@ namespace FileManager.DataAccess.Data
 
         public object studentDao(FileTypes fileFormat)
         {
+            new StudentDaoFactory().Create();
             Console.WriteLine((int)fileFormat);
             return new Object();
         }

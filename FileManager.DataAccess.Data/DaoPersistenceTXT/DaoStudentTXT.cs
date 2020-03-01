@@ -4,7 +4,7 @@ using System.IO;
 using FileManager.DataAccess.Data;
 using System.Collections.Generic;
 
-namespace FileManager.DataAccess.Data.DaoPersistenceTXT
+namespace FileManager.DataAccess.Data
 {
     public class DaoStudentTXT : IStudentDAO
     {
