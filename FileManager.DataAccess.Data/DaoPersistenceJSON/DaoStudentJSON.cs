@@ -1,7 +1,7 @@
 ﻿using FileManager.Common.Layer;
 using System;
 using System.IO;
-using FileManager.DataAccess.Data.DaoInterfaces;
+using FileManager.DataAccess.Data;
 using System.Collections.Generic;
 
 namespace FileManager.DataAccess.Data.DaoPersistenceJSON

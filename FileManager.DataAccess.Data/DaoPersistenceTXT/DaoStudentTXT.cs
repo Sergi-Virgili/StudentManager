@@ -1,7 +1,7 @@
 ﻿using FileManager.Common.Layer;
 using System;
 using System.IO;
-using FileManager.DataAccess.Data.DaoInterfaces;
+using FileManager.DataAccess.Data;
 using System.Collections.Generic;
 
 namespace FileManager.DataAccess.Data.DaoPersistenceTXT
@@ -12,7 +12,7 @@ namespace FileManager.DataAccess.Data.DaoPersistenceTXT
         public Student Create(Student student)
         {
 
-            string line = student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
+            string line = "----- TXT FILE ---- " + student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
             using (StreamWriter file = new StreamWriter(FileName, true))
             {
                 file.WriteLine(line);
