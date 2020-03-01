@@ -8,11 +8,11 @@ namespace FileManager.DataAccess.Data.DaoPersistenceJSON
 {
     public class DaoStudentJSON : IStudentDAO
     {
-        private static readonly String FileName = "./Students.txt";
+        private static readonly String FileName = "./Students.json";
         public Student Create(Student student)
         {
 
-            string line = student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
+            string line ="----- JSON FILE ---- " + student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
             using (StreamWriter file = new StreamWriter(FileName, true))
             {
                 file.WriteLine(line);
