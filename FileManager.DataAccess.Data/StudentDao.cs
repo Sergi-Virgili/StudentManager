@@ -9,13 +9,20 @@ using System.Threading.Tasks;
 
 namespace FileManager.DataAccess.Data
 {
-    public class StudentDao
+    public class StudentDao : IAbstractFactoryDao
     {
-        public Student Create(Student student)
-        {
-            Student oNewStudent = DaoStudentTXT.Create(student);
 
-            return oNewStudent;
+        public static Student Create(Student student)
+        {
+
+
+            return null;
+        }
+
+        public object studentDao(FileTypes fileFormat)
+        {
+            Console.WriteLine((int)fileFormat);
+            return new Object();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FileManager.Common.Layer;
+using FileManager.DataAccess.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +16,28 @@ namespace FileManager.Presentation.WinSite
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmStudent());
+
+          
+           Commands();
+
+           
+
+            /* Application.EnableVisualStyles();
+             Application.SetCompatibleTextRenderingDefault(false);
+             Application.Run(new frmStudent());*/
+
+
         }
+
+        private static void Commands()
+        {
+
+            object studentDao = new StudentDao().studentDao(FileTypes.json);
+            
+
+            
+
+        }
+        
     }
 }
