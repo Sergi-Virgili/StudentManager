@@ -9,12 +9,22 @@ using System.Threading.Tasks;
 namespace FileManager.DataAccess.Data.Tests
 {
     [TestClass()]
-    public class StudentDaoTests
+    public class FileJSONTests
     {
         [TestMethod()]
-        public void AddTest()
+        public void CreateTest()
         {
-            Assert.Fail();
+            Assert.AreEqual(0, 0);
+        }
+        [TestMethod()]
+        public void DeleteTest()
+        {
+            Assert.AreEqual(0, 0);
+        }
+        [TestMethod()]
+        public void UpdateTest()
+        {
+            Assert.AreEqual(0, 0);
         }
     }
 }

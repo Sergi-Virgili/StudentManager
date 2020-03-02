@@ -41,8 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\PersitenseTypes.cs" />
+    <Compile Include="IAbstractFactory\IAbstractFactory.cs" />
+    <Compile Include="IFile\IFile.cs" />
+    <Compile Include="FileConcretes\FileXML.cs" />
+    <Compile Include="FileConcretes\FileJSON.cs" />
+    <Compile Include="FileConcretes\FileTXT.cs" />
+    <Compile Include="FileFactory\FileFactory.cs" />
+    <Compile Include="FactoryProvider.cs" />
+    <Compile Include="Enums\FileTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FileManager.Common.Layer\FileManager.Common.Layer.csproj">
@@ -50,5 +58,6 @@
       <Name>FileManager.Common.Layer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

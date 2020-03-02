@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace FileManager.DataAccess.Data
 {
-    public class StudentDao
+    public interface IFile
     {
-        public Student Add(Student student)
-        {
-            throw new NotImplementedException("The method is not implemented yet");
-        }
+          Student Create(Student student);
+          Student Update(Student student);
+          Boolean Delete(Student student);
+        
+          List<Student> All();
     }
 }
