@@ -32,9 +32,11 @@ namespace FileManager.Presentation.WinSite
         private static void Commands()
         {
 
-            object studentDao = new StudentDao().studentDao(FileTypes.json);
+            Student student = new Student(10,"Sergi","Virgilius",2000);
             
-            
+            IFile file = FactoryProvider.getFactory("File").Create(FileTypes.txt);
+
+            file.Create(student);
             
 
         }
