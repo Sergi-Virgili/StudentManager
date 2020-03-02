@@ -8,10 +8,17 @@ namespace FileManager.DataAccess.Data
 {
     public class FactoryProvider
     {
-        public static IAbstractFactory getFactory(string choice)
+        public static IAbstractFactory getFactory(PersitenseTypes PersistenceTypes)
         {
-            if (choice == "File") { return new FileFactory(); }
-            return null;
+
+            switch (PersistenceTypes)
+            {
+                case PersitenseTypes.FILE:
+
+                    return new FileFactory();
+                default : return null; 
+            }
+          
         }
     }
 }

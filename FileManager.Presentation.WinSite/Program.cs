@@ -33,12 +33,14 @@ namespace FileManager.Presentation.WinSite
         {
 
             Student student = new Student(10,"Sergi","Virgilius",2000);
-            
-            IFile file = FactoryProvider.getFactory("File").Create(FileTypes.txt);
+            Student student2 = new Student(11, "VIRIVIR", "asdasad", 2012);
 
-            file.Create(student);
-            
+            IFile file = FactoryProvider.getFactory(PersitenseTypes.
+                FILE).Create(FileTypes.txt);
 
+            file.Create(student2);
+
+            
         }
         
     }

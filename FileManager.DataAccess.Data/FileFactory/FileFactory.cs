@@ -16,12 +16,12 @@ namespace FileManager.DataAccess.Data
             switch (fileFormat)
             {
                 case FileTypes.txt :
-                    Console.WriteLine("txt");
+                   
                     return new FileTXT();
                     
                    
                 case FileTypes.json:
-                    Console.WriteLine("json");
+                  
                     return new FileJSON();
                   
                 case FileTypes.xml:

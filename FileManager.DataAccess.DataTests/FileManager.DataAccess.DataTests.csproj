@@ -56,13 +56,19 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="FileConcretes\FileJSONTests.cs" />
+    <Compile Include="FileConcretes\FileTXTTests.cs" />
+    <Compile Include="FileConcretes\FileXMLTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentDaoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileManager.Common.Layer\FileManager.Common.Layer.csproj">
+      <Project>{4CDAD1F9-7F38-4570-BDF4-1996BF882E51}</Project>
+      <Name>FileManager.Common.Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileManager.DataAccess.Data\FileManager.DataAccess.Data.csproj">
       <Project>{7695921C-5428-45BF-B7FE-065E3A4E2615}</Project>
       <Name>FileManager.DataAccess.Data</Name>

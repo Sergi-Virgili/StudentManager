@@ -12,7 +12,7 @@ namespace FileManager.DataAccess.Data
           Student Create(Student student);
           Student Update(Student student);
           Boolean Delete(Student student);
-          Student Find(int id);
+        
           List<Student> All();
     }
 }

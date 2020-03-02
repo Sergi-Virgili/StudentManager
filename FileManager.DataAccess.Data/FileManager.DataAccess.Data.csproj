@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\PersitenseTypes.cs" />
     <Compile Include="IAbstractFactory\IAbstractFactory.cs" />
     <Compile Include="IFile\IFile.cs" />
     <Compile Include="FileConcretes\FileXML.cs" />
@@ -48,7 +49,7 @@
     <Compile Include="FileConcretes\FileTXT.cs" />
     <Compile Include="FileFactory\FileFactory.cs" />
     <Compile Include="FactoryProvider.cs" />
-    <Compile Include="FileTypes.cs" />
+    <Compile Include="Enums\FileTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
