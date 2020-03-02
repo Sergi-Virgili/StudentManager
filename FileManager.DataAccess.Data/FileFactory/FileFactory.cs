@@ -18,8 +18,7 @@ namespace FileManager.DataAccess.Data
                 case FileTypes.txt :
                    
                     return new FileTXT();
-                    
-                   
+     
                 case FileTypes.json:
                   
                     return new FileJSON();

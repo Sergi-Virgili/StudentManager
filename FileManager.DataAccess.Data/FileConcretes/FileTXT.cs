@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using FileManager.DataAccess.Data;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FileManager.DataAccess.Data
 {
@@ -12,7 +13,7 @@ namespace FileManager.DataAccess.Data
         public Student Create(Student student)
         {
 
-            string line = "----- TXT FILE ---- " + student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
+            string line = student.Id.ToString() + ";" + student.Name + ";" + student.Surname + ";" + student.AgeOfBirth.ToString();
             using (StreamWriter file = new StreamWriter(FileName, true))
             {
                 file.WriteLine(line);
@@ -21,35 +22,50 @@ namespace FileManager.DataAccess.Data
             return student;
         }
         
-        public Student Update (Student student)
-        {
-            throw new NotImplementedException("No implemented");
-             
-        }
-
         public Boolean Delete (Student student)
         {
-            throw new NotImplementedException("No implemented");
+            List<Student> studentsList = All();
+            Student studentToDelete = studentsList.Find(x => x.Id == student.Id);
+            if (studentsList.Remove(studentToDelete))
+            {
+                WriteAllLines(studentsList);
+                return true;
+            }
+            return false;
+
         }
 
-        public Student Find (int id)
-        {
-            throw new NotImplementedException("No implemented");
-        }
         public List<Student> All()
         {
+            List<Student> result = new List<Student>();
 
             string[] lines = File.ReadAllLines(FileName);
             foreach (var line in lines)
             {
                 var values = line.Split(';');
-                Console.WriteLine(values[0] + " " + values[1] + " " + values[2]);
-
+                Student student = new Student (int.Parse(values[0]), values[1] ,values[2], int.Parse(values[3]));
+                result.Add(student);
             }
 
-            List<Student> result = new List<Student>();
-            return null;
+            return result;
+        }
+        public Student Update(Student student)
+        {
+            List<Student> studentsList = All();
+            var studentToUpdate = studentsList.Find(x => x.Id == student.Id);
+            return student;
 
+        }
+       
+        private void WriteAllLines(List<Student> studentList)
+        {
+            File.Delete(FileName);
+            foreach (Student student in studentList)
+            {
+                Create(student);
+                
+            }
+            
         }
     }
 }

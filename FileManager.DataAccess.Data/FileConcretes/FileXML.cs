@@ -12,7 +12,7 @@ namespace FileManager.DataAccess.Data
         public Student Create(Student student)
         {
 
-            string line = "----- XML FILE ---- " + student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
+            string line = student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
             using (StreamWriter file = new StreamWriter(FileName, true))
             {
                 file.WriteLine(line);

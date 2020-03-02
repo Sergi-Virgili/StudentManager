@@ -38,7 +38,7 @@ namespace FileManager.Presentation.WinSite
             IFile file = FactoryProvider.getFactory(PersitenseTypes.
                 FILE).Create(FileTypes.txt);
 
-            file.Create(student2);
+            file.Delete(student2);
 
             
         }
