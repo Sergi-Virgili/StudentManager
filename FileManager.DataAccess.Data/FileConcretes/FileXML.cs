@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using FileManager.DataAccess.Data;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace FileManager.DataAccess.Data
 {
@@ -12,11 +13,17 @@ namespace FileManager.DataAccess.Data
         public Student Create(Student student)
         {
 
-            string line = student.Id.ToString() + ";" + student.Name + ";" + student.AgeOfBirth.ToString();
-            using (StreamWriter file = new StreamWriter(FileName, true))
-            {
-                file.WriteLine(line);
-            }
+            HelperXml.CreateFile(FileName);
+            XDocument document = XDocument.Load(FileName);
+          
+            XElement studentXml = new XElement("student",
+                new XElement("id", student.Id),
+                new XElement("name", student.Name),
+                new XElement("surname", student.Surname),
+                new XElement("ageOfBirth", student.AgeOfBirth)
+            );
+            document.Element("students").Add(studentXml);
+            document.Save(FileName);
 
             return student;
         }
@@ -39,17 +46,7 @@ namespace FileManager.DataAccess.Data
         public List<Student> All()
         {
 
-            string[] lines = File.ReadAllLines(FileName);
-            foreach (var line in lines)
-            {
-                var values = line.Split(';');
-                Console.WriteLine(values[0] + " " + values[1] + " " + values[2]);
-
-            }
-
-            List<Student> result = new List<Student>();
-            return null;
-
+            throw new NotImplementedException("No implemented");
         }
     }
 }
