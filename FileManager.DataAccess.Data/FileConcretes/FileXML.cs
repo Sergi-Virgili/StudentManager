@@ -4,6 +4,7 @@ using System.IO;
 using FileManager.DataAccess.Data;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Linq;
 
 
 namespace FileManager.DataAccess.Data
@@ -40,13 +41,22 @@ namespace FileManager.DataAccess.Data
 
         public Boolean Delete(Student student)
         {
-            throw new NotImplementedException("No implemented");
+            var document = XDocument.Load(FileName);
+
+            var elementToDelete = from ele in document.Element("students").Elements("student").Elements("id")
+                                  where ele.Value.Equals(student.Id.ToString())
+                                  select ele;
+
+            elementToDelete.First().Parent.Remove();
+            document.Save(FileName);
+            return true;
         }
 
         public Student Find(int id)
         {
             throw new NotImplementedException("No implemented");
         }
+
         public List<Student> All()         
         {
             var document = XElement.Load(FileName);
