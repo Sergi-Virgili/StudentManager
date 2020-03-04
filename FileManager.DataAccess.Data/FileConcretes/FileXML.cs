@@ -63,16 +63,28 @@ namespace FileManager.DataAccess.Data
             return true;
         }
 
-        public Student Find(int id)
+        public Student Find(Student student)
         {
-            throw new NotImplementedException("No implemented");
+            var document = XDocument.Load(FileName);
+            var elementToSearch = from ele in document.Element("students").Elements("student").Elements("id")
+                                  where ele.Value.Equals(student.Id.ToString())
+                                  select ele.Parent;
+
+            var Finded = elementToSearch.First();
+            int id = Int32.Parse(Finded.Element("id").Value);
+            string name = Finded.Element("name").Value;
+            string surname = Finded.Element("surname").Value;
+            int ageOfBirth = Int32.Parse(Finded.Element("ageOfBirth").Value);
+
+
+            Student studentFinded = new Student(id,);
+       
         }
 
         public List<Student> All()         
         {
             var document = XElement.Load(FileName);
             List<Student> studentList = new List<Student>();
-
 
             foreach (XElement student in document.Elements("student"))
             {
