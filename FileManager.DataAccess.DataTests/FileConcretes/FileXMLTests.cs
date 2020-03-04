@@ -35,7 +35,14 @@ namespace FileManager.DataAccess.Data.Tests
         [TestMethod()]
         public void DeleteTest()
         {
-            Assert.AreEqual(0, 0);
+           
+            IFile xmlFile = new FileXML();
+            Student addedStudent = xmlFile.Create(student);
+            Student addedStudent1 = xmlFile.Create(student2);
+
+            bool response = xmlFile.Delete(addedStudent);
+            Assert.IsTrue(response);
+
         }
         [TestMethod()]
         public void UpdateTest()
