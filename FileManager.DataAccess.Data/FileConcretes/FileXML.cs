@@ -35,8 +35,19 @@ namespace FileManager.DataAccess.Data
 
         public Student Update(Student student)
         {
-            throw new NotImplementedException("No implemented");
+            var document = XDocument.Load(FileName);
 
+            var elementToEdit = from ele in document.Element("students").Elements("student").Elements("id")
+                                where ele.Value.Equals(student.Id.ToString())
+                                select ele.Parent;
+
+            var nodeToUpdate = elementToEdit.First();
+            nodeToUpdate.Element("name").Value = student.Name;
+            nodeToUpdate.Element("surname").Value = student.Surname;
+            nodeToUpdate.Element("ageOfBirth").Value = student.AgeOfBirth.ToString();
+
+            document.Save(FileName);
+            return student;
         }
 
         public Boolean Delete(Student student)
