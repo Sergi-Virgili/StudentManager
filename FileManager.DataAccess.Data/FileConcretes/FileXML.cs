@@ -5,15 +5,19 @@ using FileManager.DataAccess.Data;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
+
 namespace FileManager.DataAccess.Data
 {
     public class FileXML : IFile
     {
         private static readonly String FileName = "./Students.xml";
-        public Student Create(Student student)
-        {
 
+        public FileXML()
+        {
             HelperXml.CreateFile(FileName);
+        }
+        public Student Create(Student student)
+        { 
             XDocument document = XDocument.Load(FileName);
           
             XElement studentXml = new XElement("student",
@@ -43,10 +47,23 @@ namespace FileManager.DataAccess.Data
         {
             throw new NotImplementedException("No implemented");
         }
-        public List<Student> All()
+        public List<Student> All()         
         {
+            var document = XElement.Load(FileName);
+            List<Student> studentList = new List<Student>();
 
-            throw new NotImplementedException("No implemented");
+
+            foreach (XElement student in document.Elements("student"))
+            {
+                var id = student.Element("id").Value;
+                var name = student.Element("name").Value;
+                var surname = student.Element("surname").Value;
+                var ageOfBirth = student.Element("ageOfBirth");
+                Student studentInFile = new Student(int.Parse(id), name, surname, (int)ageOfBirth);
+                studentList.Add(studentInFile);
+            }
+           
+            return studentList;
         }
     }
 }
